@@ -12,4 +12,8 @@ app.get("/", (req, res) => res.render("home"));
 const handleListening = () =>
   console.log(`✅ Server running: http://localhost:${PORT}`);
 
-app.listen(PORT, handleListening);
+// app.listen(PORT, handleListening);
+
+// HTTP 서버위에 socketIO 서버를 올린다.
+const server = app.listen(PORT, handleListening);
+const io = socketIO(server);

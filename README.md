@@ -9,3 +9,4 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - [x] Static
 - [x] ESLint
 - [] SocketIO
+  http://localhost:4000/socket.io/socket.io.js (참고)
