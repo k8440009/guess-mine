@@ -9,7 +9,8 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - [x] Static
 - [x] ESLint
 - [] Login
-  [x] 1. save nickname
+  1. save nickname [x]
+  2. Login using SocketIO [x]
 - [] SocketIO
   http://localhost:4000/socket.io/socket.io.js (참고)
 
@@ -34,3 +35,9 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - https://www.npmjs.com/package/del : 위치를 저장하여 그곳의 폴더 자동 삭제
 - https://www.npmjs.com/package/gulp-browserify
 - https://www.npmjs.com/package/babelify
+
+## 기타
+
+- Node.js 변수를 Pug 스크립트 태그 내부로 전달 (Pug)
+  https://codeday.me/ko/qa/20190721/1114443.html
+  https://pugjs.org/language/interpolation.html

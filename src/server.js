@@ -2,6 +2,8 @@ import { join } from "path";
 import express from "express";
 import socketIO from "socket.io";
 import logger from "morgan";
+import socketController from "./socketController";
+import events from "./events";
 
 const PORT = 4000;
 const app = express();
@@ -9,7 +11,9 @@ app.set("view engine", "pug");
 app.set("views", join(__dirname, "views"));
 app.use(logger("dev"));
 app.use(express.static(join(__dirname, "static")));
-app.get("/", (req, res) => res.render("home"));
+app.get("/", (req, res) =>
+  res.render("home", { events: JSON.stringify(events) })
+);
 
 const handleListening = () =>
   console.log(`✅ Server running: http://localhost:${PORT}`);
@@ -24,16 +28,4 @@ const io = socketIO.listen(server);
 let sockets = [];
 
 // 연결
-io.on("connection", socket => {
-  // 클라이언트가 전송한 메세지 다른 클라이언트들에게 전달
-  socket.on("newMessage", ({ message }) => {
-    socket.broadcast.emit("messageNotifi", {
-      message,
-      nickname: socket.nickname || "Anonymous"
-    });
-  });
-  // socket에 닉네임 저장
-  socket.on("setNickname", ({ nickname }) => {
-    socket.nickname = nickname;
-  });
-});
+io.on("connection", socket => socketController(socket));
