@@ -1,4 +1,4 @@
-import { initSockets } from "./socket";
+import { initSockets } from "./sockets";
 
 const body = document.querySelector("body");
 const loginForm = document.getElementById("jsLogin");
@@ -26,6 +26,7 @@ const handleFormSubmit = e => {
   const { value } = input;
   input.value = "";
   localStorage.setItem(NICKNAME, value);
+  body.className = LOGGED_IN;
   logIn(value);
 };
 

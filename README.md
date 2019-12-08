@@ -8,11 +8,12 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - [x] Pug
 - [x] Static
 - [x] ESLint
-- [] Login
+- [x] SocketIO
+      http://localhost:4000/socket.io/socket.io.js (참고)
+- [x] Login
   1. save nickname [x]
   2. Login using SocketIO [x]
-- [] SocketIO
-  http://localhost:4000/socket.io/socket.io.js (참고)
+- [x] Chat
 
 ## file
 

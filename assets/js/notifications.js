@@ -1,13 +1,14 @@
 /*******************************
  * 알림
  *******************************/
-const notifications = document.getElementById("jsNotifications");
+const body = document.querySelector("body");
 // 색깔로 알려준다.
 const fireNotification = (text, color) => {
   const notification = document.createElement("div");
   notification.innerText = text;
   notification.style.backgroundColor = color;
-  notifications.appendChild(notification);
+  notification.className = "notification";
+  body.appendChild(notification);
 };
 // 새로운 유저가 오면 알려준다.
 export const handleNewUser = ({ nickname }) =>

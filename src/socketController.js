@@ -11,15 +11,10 @@ const socketController = socket => {
   socket.on(events.disconnect, () => {
     broadcast(events.disconnected, { nickname: socket.nickname });
   });
-  /*
-  // 클라이언트가 전송한 메세지 다른 클라이언트들에게 전달
-  socket.on("newMessage", ({ message }) => {
-    socket.broadcast.emit("messageNotifi", {
-      message,
-      nickname: socket.nickname || "Anonymous"
-    });
+
+  socket.on(events.sendMsg, ({ message }) => {
+    broadcast(events.newMsg, { message, nickname: socket.nickname });
   });
-  */
 };
 
 export default socketController;
