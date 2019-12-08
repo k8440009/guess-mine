@@ -2,8 +2,8 @@ import events from "./events";
 
 const socketController = socket => {
   socket.on(events.setNickname, ({ nickname }) => {
-    console.log(nickname);
     socket.nickname = nickname;
+    socket.broadcast.emit(events.newUser, { nickname });
   });
   /*
   // 클라이언트가 전송한 메세지 다른 클라이언트들에게 전달
